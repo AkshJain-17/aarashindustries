@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Enquiry - Aarash Industries</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #c40000 0%, #e63946 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .contact-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 60px 40px;
+        max-width: 600px;
+        text-align: center;
+        animation: slideInUp 0.5s ease;
+      }
+
+      @keyframes slideInUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .contact-container h1 {
+        color: #c40000;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      .contact-container p {
+        color: #555;
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      .contact-info {
+        background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+        border-left: 5px solid #c40000;
+        padding: 30px 25px;
+        border-radius: 8px;
+        margin: 40px 0;
+      }
+
+      .contact-details {
+        margin: 20px 0;
+      }
+
+      .contact-label {
+        color: #c40000;
+        font-weight: 700;
+        font-size: 1.1em;
+        margin-bottom: 8px;
+      }
+
+      .contact-value {
+        color: #333;
+        font-size: 1.3em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-call {
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        color: white;
+      }
+
+      .btn-call:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      }
+
+      .btn-close {
+        background: #f0f0f0;
+        color: #c40000;
+        border: 2px solid #c40000;
+      }
+
+      .btn-close:hover {
+        background: #c40000;
+        color: white;
+      }
+
+      .footer-text {
+        color: #999;
+        font-size: 0.9em;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      @media (max-width: 480px) {
+        .contact-container {
+          padding: 40px 25px;
+        }
+
+        .contact-container h1 {
+          font-size: 2em;
+        }
+
+        .contact-container p {
+          font-size: 1em;
+        }
+
+        .contact-value {
+          font-size: 1.1em;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-container">
+      <h1>📞 Order Enquiry</h1>
+      <p>Thank you for your interest in our products!</p>
+
+      <div
+        id="productInfo"
+        class="contact-info"
+        style="display: none; border-left-color: #25d366; margin-bottom: 20px"
+      >
+        <div
+          id="enquiryImageSection"
+          style="display: none; margin-bottom: 15px; text-align: center"
+        >
+          <img
+            id="enquiryImage"
+            src=""
+            alt="Product"
+            style="
+              max-width: 200px;
+              max-height: 200px;
+              border-radius: 10px;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+              object-fit: contain;
+            "
+          />
+        </div>
+        <div class="contact-details">
+          <div class="contact-label">Product Enquiry For:</div>
+          <div class="contact-value" id="enquiryProduct"></div>
+        </div>
+        <div
+          class="contact-details"
+          id="enquirySpecsSection"
+          style="display: none"
+        >
+          <div class="contact-label">Specifications:</div>
+          <div
+            class="contact-value"
+            id="enquirySpecs"
+            style="font-size: 1em"
+          ></div>
+        </div>
+        <div
+          class="contact-details"
+          id="enquirySizesSection"
+          style="display: none"
+        >
+          <div class="contact-label">Selected Sizes:</div>
+          <div
+            class="contact-value"
+            id="enquirySizes"
+            style="font-size: 1em"
+          ></div>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-details">
+          <div class="contact-label">For Order Enquiry, Contact:</div>
+          <div class="contact-value">DEEPAK JAIN</div>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-label">Phone Number:</div>
+          <div class="contact-value">+91 78380 27000</div>
+        </div>
+      </div>
+
+      <p style="color: #333; font-weight: 500">
+        We look forward to serving you with the best pricing and swift delivery!
+      </p>
+
+      <div class="action-buttons">
+        <a
+          id="whatsappLink"
+          href="https://wa.me/917838027000"
+          target="_blank"
+          class="btn btn-call"
+        >
+          💬 Message via WhatsApp
+        </a>
+        <button class="btn btn-close" onclick="window.close()">
+          Close Tab
+        </button>
+      </div>
+
+      <p class="footer-text">
+        © 2026 AARASH INDUSTRIES | Quality Cookware Manufacturer
+      </p>
+    </div>
+  </body>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const productName = params.get("product");
+      const specs = params.get("specs");
+      const category = params.get("category");
+      const selectedSizes = params.get("selectedSizes");
+      const image = params.get("image");
+
+      if (productName) {
+        // Show product info section
+        document.getElementById("productInfo").style.display = "";
+        document.getElementById("enquiryProduct").textContent = productName;
+
+        if (image) {
+          document.getElementById("enquiryImageSection").style.display = "";
+          document.getElementById("enquiryImage").src = image;
+          document.getElementById("enquiryImage").alt = productName;
+        }
+
+        if (specs) {
+          document.getElementById("enquirySpecsSection").style.display = "";
+          document.getElementById("enquirySpecs").textContent = specs;
+        }
+
+        if (selectedSizes) {
+          document.getElementById("enquirySizesSection").style.display = "";
+          document.getElementById("enquirySizes").textContent = selectedSizes;
+        }
+
+        // Build WhatsApp message with selected product details
+        var message = "Hi, I am interested in the following product from Aarash Industries:\n\n";
+        message += "🛒 *Product:* " + productName + "\n";
+        if (category)
+          message += "📦 *Category:* " + category.charAt(0).toUpperCase() + category.slice(1) + "\n";
+        if (specs) message += "📐 *Specifications:* " + specs + "\n";
+        if (selectedSizes) message += "📏 *Selected Sizes:* " + selectedSizes + "\n";
+        message += "\nPlease share the best pricing and availability. Thank you!";
+
+        document.getElementById("whatsappLink").href =
+          "https://wa.me/917838027000?text=" + encodeURIComponent(message);
+
+        // If we have a base64 image, offer a "Share with Image" button
+        if (image && image.startsWith("data:")) {
+          setupImageShare(image, productName, message);
+        }
+      }
+    })();
+
+    function setupImageShare(base64Image, productName, message) {
+      // Create a download-and-share button for the image
+      const shareBtn = document.createElement("button");
+      shareBtn.className = "btn btn-call";
+      shareBtn.style.background = "linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%)";
+      shareBtn.innerHTML = "📷 Share Product Image";
+      shareBtn.title = "Download image then share it on WhatsApp";
+      shareBtn.onclick = function () {
+        // Download the image
+        const link = document.createElement("a");
+        link.href = base64Image;
+        link.download = productName.replace(/\s+/g, "_") + ".png";
+        link.click();
+
+        // Show instruction
+        setTimeout(() => {
+          alert("✅ Product image downloaded!\n\nNow open WhatsApp and attach this image along with your message.");
+        }, 500);
+      };
+
+      // Also try Web Share API if available (mobile)
+      if (navigator.share && navigator.canShare) {
+        shareBtn.onclick = async function () {
+          try {
+            // Convert base64 to blob
+            const res = await fetch(base64Image);
+            const blob = await res.blob();
+            const file = new File([blob], productName.replace(/\s+/g, "_") + ".png", { type: "image/png" });
+
+            if (navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                title: "Product Enquiry - " + productName,
+                text: message,
+                files: [file],
+              });
+              return;
+            }
+          } catch (e) {
+            // Fall back to download
+          }
+          // Fallback: download
+          const link = document.createElement("a");
+          link.href = base64Image;
+          link.download = productName.replace(/\s+/g, "_") + ".png";
+          link.click();
+          setTimeout(() => {
+            alert("✅ Product image downloaded!\n\nNow open WhatsApp and attach this image along with your message.");
+          }, 500);
+        };
+      }
+
+      const actionButtons = document.querySelector(".action-buttons");
+      actionButtons.insertBefore(shareBtn, actionButtons.firstChild);
+    }
+  </script>
+</html>
